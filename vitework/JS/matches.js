@@ -2,8 +2,8 @@ let mommy = ["DocumentElementObject"];
 let alpha = ["", "A", "B", "C", "D", "E", "F", "G", "H"];
 let reverseAlpha = { A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8 };
 let Matches = {};
-class match {
-  constructor(matchID, leftOrRight, round, game, players) {
+class match { //match is a game played between 4 players where the top 2 advance. intended subclass: championship match
+  constructor(matchID, leftOrRight, round, game, players) {//makes a match item and adds it to the mommy. appends it to Matches as Matches[matchI] 
     this.name = matchID; //R1G1
     this.round = round;
     this.game = game;
@@ -27,9 +27,11 @@ class match {
         this.button = document.createElement("button");
         this.button.innerHTML = "Ok";
         console.log(this[str].input);
-        this.button.addEventListener("click", function (x) {
-          this.setPlayer(i, this[str].input.value);
-        });
+        let eta = this
+        this.button.addEventListener("click", function (x,y) {
+          console.log(str, eta)
+          eta.setPlayer(i, eta[str].input.value);
+        },);
         this[str].appendChild(this[str].input);
         this[str].appendChild(this.button);
         if (i == 4) {
@@ -41,9 +43,9 @@ class match {
       this.element.appendChild(this[str]);
     }
     mommy.appendChild(this.element);
-  }
+  } 
 
-  setPlayer(num, player) {
+  setPlayer(num, player) { //sets the match.player[num]. If player is a player object, we goochie. otherwise, makes a player object with this origin.
     if (typeof player == "string") {
       this[`Player${num}Div`].innerHTML = `${this.game}${num}: ${player}`;
       this.players[num] = new Player(player, `${this.game}${num}`);
@@ -54,7 +56,7 @@ class match {
       this.players[num] = player;
     }
   }
-  setWinners(first, second) {
+  setWinners(first, second) { //advances the players to their next match. NOT WORKING. intended outcome: winner stays on their path (should work), looser jumps to across board
     first.sendTo(
       `R${this.round + 1} G${Alpha[Math.ceil(reverseAlpha[this.game] / 2)]}`,
       1
@@ -68,17 +70,17 @@ class match {
       secondRound = 8 / 2 ** this.round;
     }
     second.sendTo(`R${this.round + 1} G${Alpha[secondRound]}`, 2);
-  }
+  } 
 }
-class Player {
-  constructor(name, origin) {
+class Player { // makes a player class
+  constructor(name, origin) { 
     this.name = name;
     this.origin = origin;
   }
-  toString() {
+  toString() { //gets the name of the players
     return this.name;
   }
-  sendTo(match, seed) {
+  sendTo(match, seed) { //sends a player to an open spot in an avaiable match based on their seed. each match past round one should have 2 players with seed==1 and 2 players with seed==2
     if (seed == 1) {
       if (match.players[1]) {
         return match.setPlayer(2, this);
@@ -92,7 +94,7 @@ class Player {
     }
   }
 }
-function setMommy(DOMME) {
+function setMommy(DOMME) { //sets mommy locally
   mommy = DOMME;
 }
 

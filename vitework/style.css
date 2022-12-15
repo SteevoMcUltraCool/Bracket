@@ -19,6 +19,8 @@
     width: 12%;
     max-width: 200px;
     height: 20%;
+    max-height: 20%;
+    overflow-y: auto;
     position: absolute;
 }
 .match h5{
@@ -35,12 +37,46 @@
     padding: 2px ;
     padding-right: 10px;
 }
+.right div {
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    text-align: left;
+    padding: 2px ;
+    padding-left: 10px;
+}
+#R1GA {
+    width: 16%;
+}
 #R1GB {
+    width: 16%;
     top: 22%
 }
 #R1GC {
+    width: 16%;
     top: 44%
 }
 #R1GD {
+    width: 16%;
     top: 66%
+}
+
+#R1GE {
+    width: 16%;
+    top: 0%;
+    right: 0%;
+}
+#R1GF {
+    width: 16%;
+    top: 22%;
+    right: 0%;
+}
+#R1GG {
+    width: 16%;
+    top: 44%;
+    right: 0%;
+}
+#R1GH {
+    width: 16%;
+    top: 66%;
+    right: 0%;
 }

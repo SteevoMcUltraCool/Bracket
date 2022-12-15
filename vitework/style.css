@@ -80,3 +80,33 @@
     top: 70.5%;
     right: 0%;
 }
+
+#R2GA {
+    top: 20%;
+    left: 18%;
+}
+#R2GB {
+    bottom:20%;
+    left: 18%;
+}
+#R2GC {
+    top:20%;
+    right: 18%;
+}
+#R2GD {
+    bottom:20%;
+    right: 18%;
+}
+
+#R3GA {
+    top:40%;
+    left: 32%;
+}
+#R3GB {
+    bottom: 40%;
+    right: 32%;
+}
+
+#R4GA{ 
+
+}

@@ -26,7 +26,6 @@ class match { //match is a game played between 4 players where the top 2 advance
         this[str].appendChild(this[str].input);
         this.button = document.createElement("button");
         this.button.innerHTML = "Ok";
-        console.log(this[str].input);
         let eta = this
         this.button.addEventListener("click", function (x,y) {
           console.log(str, eta)

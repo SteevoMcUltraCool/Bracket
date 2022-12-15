@@ -1,0 +1,46 @@
+#topbar {
+    position: fixed;
+    top:0px;
+    left: 0px;
+    height: 50px;
+    width: 100vw;
+    background-color: blue;
+    text-align: center;
+}
+#mommy{
+    position: absolute;
+    top:55px;
+    left:0px;
+    height: calc(99% - 50px);
+    width: 100vw;
+}
+
+.match {
+    width: 12%;
+    max-width: 200px;
+    height: 20%;
+    position: absolute;
+}
+.match h5{
+    text-decoration: underline;
+    margin: 0px 0px;
+}
+.match input {
+    max-width: 100px;
+}
+.left div {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    text-align: right;
+    padding: 2px ;
+    padding-right: 10px;
+}
+#R1GB {
+    top: 22%
+}
+#R1GC {
+    top: 44%
+}
+#R1GD {
+    top: 66%
+}

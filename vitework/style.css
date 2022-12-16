@@ -168,3 +168,16 @@ button{
     text-align: center;
 }
 
+
+.confirmbu{
+    background-color: transparent;
+    border: transparent;
+    color: var(--smalltextcolor);
+    font-weight: bolder;
+    font-size: 1vw;
+    transition:  all 0.3s;
+}
+.confirmbu:hover{
+    transform: scale(1.25) translate(0%, -12.5%);
+    text-shadow: 1px 1px 2px var(--textshadow);
+}

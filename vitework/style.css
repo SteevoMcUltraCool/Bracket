@@ -1,112 +1,164 @@
+:root{
+    --textcolor: #f9fcff;
+    --smalltextcolor: #2d6eaf;
+    --backgroundcolor: #96c8fa;
+    --moveee: 10vw;
+}
+body{
+    background-color: var(--backgroundcolor);
+    font-family: 'Audiowide', cursive;
+    margin: 0;
+    overflow: hidden;
+}
 #topbar {
-    position: fixed;
-    top:0px;
-    left: 0px;
-    height: 50px;
-    width: 100vw;
-    background-color: blue;
+    position: absolute;
+    margin-top: 1vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    color: var(--textcolor);
+    padding: 1vw;
+    border-radius: 30px;
+    top: 6vh;
+    font-size: 2vw;
+    width: 80vw;
+    top: 13vh;
+    text-shadow: 10px 10px #599cdf;
+    font-family: 'Russo One', sans-serif;
+    letter-spacing: 3px;
+    text-shadow: -1px 1px 0 #599cdf,
+    10px 10px 0 #599cdf,
+   2px -2px 0 #599cdf,
+  -2px -2px 0 #599cdf;
 }
 #mommy{
     position: absolute;
-    top:55px;
-    left:0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: calc(99% - 50px);
-    width: 100vw;
+    width: 90vw;
+    top: 30vw;
 }
-
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: transparent;
+    text-shadow: 0;
+}
 .match {
     width: 12%;
     max-width: 200px;
-    height: 20%;
-    max-height: 20%;
     overflow-y: auto;
     position: absolute;
+    padding: 1.3vw;
+    border-radius: 30px;
 }
 .match h5{
     text-decoration: underline;
     margin: 0px 0px;
+    color: #2d6eaf;
+    font-size: 1.1vw;
+    font-family: 'Russo One', sans-serif;
+    letter-spacing: 1px;
 }
 .match input {
     max-width: 100px;
 }
+button{
+    background-color:#2d6eaf;
+    color: #fff;
+    border-radius: 30px;
+    border-color: #2d6eaf;
+    margin-left: 5px;
+}
 .left div {
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-    text-align: right;
-    padding: 2px ;
+    padding: 2px;
     padding-right: 10px;
+    border-bottom: 1px solid #2d6eaf;
+    border-right: 1px solid #2d6eaf;
+    text-align: right;
 }
 .right div {
-    border-bottom: 2px solid black;
-    border-left: 2px solid black;
-    text-align: left;
     padding: 2px ;
     padding-left: 10px;
+    border-bottom: 1px solid #2d6eaf;
+    border-left:  1px solid #2d6eaf;
+    text-align: left;
 }
 #R1GA {
-    width: 16%;
+    color: var(--smalltextcolor);
 }
 #R1GB {
-    width: 16%;
-    top: 23.5%
+    top: 23.5%;
+    color: var(--smalltextcolor);
 }
 #R1GC {
-    width: 16%;
+    color: var(--smalltextcolor);
     top: 47%
 }
 #R1GD {
-    width: 16%;
+    color: var(--smalltextcolor);
     top: 70.5%
 }
 
 #R1GE {
-    width: 16%;
+    color: var(--smalltextcolor);
     top: 0%;
     right: 0%;
 }
 #R1GF {
-    width: 16%;
+    color: var(--smalltextcolor);
     top: 23.5%;
     right: 0%;
 }
 #R1GG {
-    width: 16%;
+    color: var(--smalltextcolor);
     top: 47%;
     right: 0%;
 }
 #R1GH {
-    width: 16%;
+    color: var(--smalltextcolor);
     top: 70.5%;
     right: 0%;
 }
 
 #R2GA {
-    top: 20%;
+    color: var(--smalltextcolor);
+    top: 17%;
     left: 18%;
 }
 #R2GB {
+    color: var(--smalltextcolor);
     bottom:20%;
     left: 18%;
 }
 #R2GC {
-    top:20%;
+    color: var(--smalltextcolor);
+    top:17%;
     right: 18%;
 }
 #R2GD {
+    color: var(--smalltextcolor);
     bottom:20%;
     right: 18%;
 }
 
 #R3GA {
-    top:40%;
+    color: var(--smalltextcolor);
+    top:35%;
     left: 32%;
 }
 #R3GB {
-    bottom: 40%;
+    color: var(--smalltextcolor);
+    top: 35%;
     right: 32%;
 }
 
 #R4GA{ 
-
+    color: var(--smalltextcolor);
+}
+div{
+    text-align: left;
 }

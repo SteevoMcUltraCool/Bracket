@@ -28,7 +28,7 @@ class match {
         eta.confirmBu.remove();
       }
     });
-    this.confirmBu.innerHTML = (leftOrRight == "left" && "⇆") || "⇆";
+    this.confirmBu.innerHTML = "⇆";
     this.confirmBu.setAttribute("class", "confirmbu");
     this.header.appendChild(this.confirmBu);
     Matches[this.name] = this;
@@ -126,6 +126,17 @@ class match {
       }
     }
     return [first, second, third];
+  }
+  setChampions(first, second, third) {
+    this.firstMedal = document.createElement("div");
+    this.firstMedal.setAttribute("class", "medal");
+    this.firstMedal.setAttribute("id", "first");
+    let bounds = this.element.getBoundingClientRect();
+    this.firstMedal.style.top = `${bounds.top + bounds.height / 2}px`;
+    this.firstMedal.style.left = `${bounds.left + 22}px`;
+    this.innerHTML = `<div class="medal" id="first">
+                      <p><span><img></span> Stephen</p>
+                      </div>`;
   }
 }
 class Player {

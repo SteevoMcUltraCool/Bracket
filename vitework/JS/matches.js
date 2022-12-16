@@ -18,8 +18,13 @@ class match { //match is a game played between 4 players where the top 2 advance
     let eta = this
     this.confirmBu.addEventListener("click", function(){
       let winners = eta.getWinners()
-      eta.setWinners(winners[0],winners[1])
-      eta.confirmBu.remove()
+      if (leftOrRight != "center"){
+        eta.setWinners(winners[0],winners[1])
+        eta.confirmBu.remove()
+      }else {
+        eta.setChampions(winners[0],winners[1],winners[2])
+        eta.confirmBu.remove()
+      }
     })
     this.confirmBu.innerHTML = "Ok"
     this.header.appendChild(this.confirmBu)

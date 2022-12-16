@@ -24,3 +24,6 @@ new Match("R2GD", "right", 2, "D"); //makes a match
 //Round 3 (only 2 matches)
 new Match("R3GA", "left", 3, "A"); // makes a match
 new Match("R3GB", "right", 3, "B"); //makes a match
+
+
+new Match("R4GA", "center", 4, "A")

@@ -181,16 +181,21 @@ button{
     transform: scale(1.25) translate(0%, -12.5%);
     text-shadow: 1px 1px 2px var(--textshadow);
 }
-#first{
+
+.medal{
+    transition: all 1s
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
     top: 40vh;
-}
-#first:hover{
-    top: 85vh;
-    transition-duration: 1s;
 }
 img{
     width: 2vw;
+}
+#first {
+    transform: scale(200%)
+}
+#second {
+    transform: scale(150%)
+}
+#third {
+    transform: scale(122%)
 }

@@ -66,8 +66,6 @@ class match {
       this.element.appendChild(this[str]);
     }
     mommy.appendChild(this.element);
-    window.localStorage.setItem("matches", JSON.stringify(MatchArray));
-    console.log(window.localStorage.getItem("matches"));
   }
   toArray() {
     return [this.name, this.LR, this.round, this.game, this.players];
@@ -141,39 +139,51 @@ class match {
     let bounds = this.element.getBoundingClientRect();
     this.firstMedal.style.top = `${bounds.top + bounds.height / 2}px`;
     this.firstMedal.style.left = `${bounds.left + 22}px`;
-    this.firstMedal.innerHTML = `<div class="medal" id="first">
-                      <p><span><img></span> ${first.toString()}</p>
-                      </div>`;
+    this.firstMedal.innerHTML = `
+                      <p><span><img src="/goldmedal.gif"></span> ${first.toString()}</p>
+                      `;
 
     this.secondMedal = document.createElement("div");
     this.secondMedal.setAttribute("class", "medal");
     this.secondMedal.setAttribute("id", "second");
     this.secondMedal.style.top = `${bounds.top + bounds.height / 2}px`;
     this.secondMedal.style.left = `${bounds.left + 22}px`;
-    this.secondMedal.innerHTML = `<div class="medal" id="first">
-                                        <p><span><img></span> ${second.toString()}</p>
-                                        </div>`;
+    this.secondMedal.innerHTML = `
+                                        <p><span><img src="/silvermedal.gif"></span> ${second.toString()}</p>
+                                        `;
 
     this.thirdMedal = document.createElement("div");
     this.thirdMedal.setAttribute("class", "medal");
     this.thirdMedal.setAttribute("id", "third");
     this.thirdMedal.style.top = `${bounds.top + bounds.height / 2}px`;
     this.thirdMedal.style.left = `${bounds.left + 22}px`;
-    this.thirdMedal.innerHTML = `<div class="medal" id="first">
-                                <p><span><img></span> ${third.toString()}</p>
-                                                                              </div>`;
-    setTimeout(function () {
-      this.element.appendChild(this.thirdMedal);
-      this.thirdMedal.style.top = `${window.innerHeight - 125}px`;
-    }, 225);
-    setTimeout(function () {
-      this.element.appendChild(this.secondMedal);
-      this.secondMedal.style.top = `${window.innerHeight - 275}px`;
-    }, 1500);
-    setTimeout(function () {
-      this.element.appendChild(this.firstMedal);
-      this.firstMedal.style.top = `${window.innerHeight - 425}px`;
-    }, 2875);
+    this.thirdMedal.innerHTML = `
+                                <p><span><img src="/bronzemedal.gif"></span> ${third.toString()}</p>
+                                                                              `;
+    setTimeout(
+      function (eta) {
+        mommy.appendChild(eta.thirdMedal);
+        eta.thirdMedal.style.top = `${window.innerHeight - 125}px`;
+      },
+      225,
+      this
+    );
+    setTimeout(
+      function (eta) {
+        mommy.appendChild(eta.secondMedal);
+        eta.secondMedal.style.top = `${window.innerHeight - 275}px`;
+      },
+      1500,
+      this
+    );
+    setTimeout(
+      function (eta) {
+        mommy.appendChild(eta.firstMedal);
+        eta.firstMedal.style.top = `${window.innerHeight - 425}px`;
+      },
+      2875,
+      this
+    );
   }
 }
 class Player {

@@ -1,7 +1,8 @@
 let mommy = ["DocumentElementObject"];
 let alpha = ["", "A", "B", "C", "D", "E", "F", "G", "H"];
 let reverseAlpha = { A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8 };
-let Matches = {};
+var Matches = {};
+var MatchArray = [];
 class match {
   //match is a game played between 4 players where the top 2 advance. intended subclass: championship match
   constructor(matchID, leftOrRight, round, game, players) {
@@ -9,6 +10,7 @@ class match {
     this.name = matchID; //R1G1
     this.round = round;
     this.game = game;
+    this.LR = leftOrRight;
     this.players = players || [];
     this.element = document.createElement("div");
     this.element.setAttribute("id", matchID);
@@ -32,11 +34,12 @@ class match {
     this.confirmBu.setAttribute("class", "confirmbu");
     this.header.appendChild(this.confirmBu);
     Matches[this.name] = this;
+    MatchArray.push(this.toArray());
     for (let i = 1; i <= 4; i++) {
       let str = `Player${i}Div`;
       this[str] = document.createElement("div");
       this[str].setAttribute("id", `${matchID}DIV${i}`);
-      if (round == 1) {
+      if (round == 1 && !this.players[i]) {
         this[str].innerHTML = `${game}${i}: `;
         this[str].input = document.createElement("input");
         this[str].input.setAttribute("id", `${matchID}${i}`);
@@ -48,9 +51,6 @@ class match {
         });
         this[str].appendChild(this[str].input);
         this[str].appendChild(this.button);
-        if (i == 4) {
-          this[str].style.setProperty("border-bottom", "none");
-        }
       } else {
         this[str].innerHTML = `${game}${i}: ${this.players[i] || ""}`;
         this[str].input = document.createElement("input");
@@ -60,11 +60,18 @@ class match {
         this[str].input.style.maxWidth = "24px";
         this[str].appendChild(this[str].input);
       }
+      if (i == 4) {
+        this[str].style.setProperty("border-bottom", "none");
+      }
       this.element.appendChild(this[str]);
     }
     mommy.appendChild(this.element);
+    window.localStorage.setItem("matches", JSON.stringify(MatchArray));
+    console.log(window.localStorage.getItem("matches"));
   }
-
+  toArray() {
+    return [this.name, this.LR, this.round, this.game, this.players];
+  }
   setPlayer(num, player) {
     //sets the match.player[num]. If player is a player object, we goochie. otherwise, makes a player object with this origin.
     let str = `Player${num}Div`;
@@ -134,9 +141,39 @@ class match {
     let bounds = this.element.getBoundingClientRect();
     this.firstMedal.style.top = `${bounds.top + bounds.height / 2}px`;
     this.firstMedal.style.left = `${bounds.left + 22}px`;
-    this.innerHTML = `<div class="medal" id="first">
-                      <p><span><img></span> Stephen</p>
+    this.firstMedal.innerHTML = `<div class="medal" id="first">
+                      <p><span><img></span> ${first.toString()}</p>
                       </div>`;
+
+    this.secondMedal = document.createElement("div");
+    this.secondMedal.setAttribute("class", "medal");
+    this.secondMedal.setAttribute("id", "second");
+    this.secondMedal.style.top = `${bounds.top + bounds.height / 2}px`;
+    this.secondMedal.style.left = `${bounds.left + 22}px`;
+    this.secondMedal.innerHTML = `<div class="medal" id="first">
+                                        <p><span><img></span> ${second.toString()}</p>
+                                        </div>`;
+
+    this.thirdMedal = document.createElement("div");
+    this.thirdMedal.setAttribute("class", "medal");
+    this.thirdMedal.setAttribute("id", "third");
+    this.thirdMedal.style.top = `${bounds.top + bounds.height / 2}px`;
+    this.thirdMedal.style.left = `${bounds.left + 22}px`;
+    this.thirdMedal.innerHTML = `<div class="medal" id="first">
+                                <p><span><img></span> ${third.toString()}</p>
+                                                                              </div>`;
+    setTimeout(function () {
+      this.element.appendChild(this.thirdMedal);
+      this.thirdMedal.style.top = `${window.innerHeight - 125}px`;
+    }, 225);
+    setTimeout(function () {
+      this.element.appendChild(this.secondMedal);
+      this.secondMedal.style.top = `${window.innerHeight - 275}px`;
+    }, 1500);
+    setTimeout(function () {
+      this.element.appendChild(this.firstMedal);
+      this.firstMedal.style.top = `${window.innerHeight - 425}px`;
+    }, 2875);
   }
 }
 class Player {

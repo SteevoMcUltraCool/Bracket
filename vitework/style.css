@@ -189,6 +189,7 @@ button{
 }
 img{
     width: 2vw;
+    max-width: 2vw;
 }
 #first {
     transform: scale(200%)

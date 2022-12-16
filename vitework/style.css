@@ -3,6 +3,7 @@
     --smalltextcolor: #2d6eaf;
     --backgroundcolor: #96c8fa;
     --moveee: 10vw;
+    --textshadow: #4a94df;
 }
 body{
     background-color: var(--backgroundcolor);
@@ -23,13 +24,13 @@ body{
     font-size: 2vw;
     width: 80vw;
     top: 13vh;
-    text-shadow: 10px 10px #599cdf;
+    text-shadow: 10px 10px var(--textshadow);
     font-family: 'Russo One', sans-serif;
     letter-spacing: 3px;
-    text-shadow: -1px 1px 0 #599cdf,
-    10px 10px 0 #599cdf,
-   2px -2px 0 #599cdf,
-  -2px -2px 0 #599cdf;
+    text-shadow: -1px 1px 0 var(--textshadow),
+    10px 10px 0 var(--textshadow),
+   2px -2px 0 var(--textshadow),
+  -2px -2px 0 var(--textshadow);
 }
 #mommy{
     position: absolute;
@@ -46,10 +47,12 @@ input {
     border-bottom-style: groove;
     background-color: transparent;
     text-shadow: 0;
+    font-family: 'Audiowide', cursive;
+    color: #14375a;
 }
+
 .match {
     width: 12%;
-    max-width: 200px;
     overflow-y: auto;
     position: absolute;
     padding: 1.3vw;
@@ -59,7 +62,7 @@ input {
     text-decoration: underline;
     margin: 0px 0px;
     color: #2d6eaf;
-    font-size: 1.1vw;
+    font-size: .9vw;
     font-family: 'Russo One', sans-serif;
     letter-spacing: 1px;
 }
@@ -158,7 +161,9 @@ button{
 
 #R4GA{ 
     color: var(--smalltextcolor);
-}
-div{
-    text-align: left;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    border: 1px solid #2d6eaf;
+    text-align: center;
 }
